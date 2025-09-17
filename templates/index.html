@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="particle-canvas"></div>
+    <div class="container fade-in">
+        <div class="header">
+            <h1 class="main-heading">Career Path Predictor</h1>
+            <p class="subtitle">Enter your academic data to discover a possible career path based on our model.</p>
+        </div>
+        
+        <form action="/predict" method="post" class="prediction-form">
+            
+            <div class="form-section fade-in-up-delay-1">
+                <h3>Personal Information</h3>
+                <div class="input-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" class="form-control">
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="part_time_job">Part-time Job:</label>
+                    <select id="part_time_job" name="part_time_job" class="form-control">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-section fade-in-up-delay-2">
+                <h3>Academic Details</h3>
+                <div class="input-group">
+                    <label for="absence_days">Absence Days:</label>
+                    <input type="number" id="absence_days" name="absence_days" class="form-control" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="extracurricular_activities">Extracurricular Activities:</label>
+                    <select id="extracurricular_activities" name="extracurricular_activities" class="form-control">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="weekly_self_study_hours">Weekly Self-Study Hours:</label>
+                    <input type="number" id="weekly_self_study_hours" name="weekly_self_study_hours" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="form-section fade-in-up-delay-3">
+                <h3>Subject Scores (0-100)</h3>
+                <div class="score-grid">
+                    <div class="input-group">
+                        <label for="math_score">Math Score:</label>
+                        <input type="number" id="math_score" name="math_score" min="0" max="100" class="form-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="history_score">History Score:</label>
+                        <input type="number" id="history_score" name="history_score" min="0" max="100" class="form-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="physics_score">Physics Score:</label>
+                        <input type="number" id="physics_score" name="physics_score" min="0" max="100" class="form-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="chemistry_score">Chemistry Score:</label>
+                        <input type="number" id="chemistry_score" name="chemistry_score" min="0" max="100" class="form-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="biology_score">Biology Score:</label>
+                        <input type="number" id="biology_score" name="biology_score" min="0" max="100" class="form-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="english_score">English Score:</label>
+                        <input type="number" id="english_score" name="english_score" min="0" max="100" class="form-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="geography_score">Geography Score:</label>
+                        <input type="number" id="geography_score" name="geography_score" min="0" max="100" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn fade-in-up-delay-4">Predict My Career</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result-card fade-in-up-delay-5">
+                <h2>Prediction:</h2>
+                <p>{{ prediction_text }}</p>
+            </div>
+        {% endif %}
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
