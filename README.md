@@ -87,12 +87,6 @@ This project was developed to help students explore career opportunities and und
 
 ---
 
-## 📷 Screenshots
-
-_Add screenshots of your project here._
-
----
-
 ## 🔮 Future Improvements
 
 - Add Machine Learning-based prediction
