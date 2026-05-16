@@ -1,4 +1,4 @@
-# Career Compass - Student Career Predictor
+# CareerAI - Student Career Predictor
 
 A web-based career prediction application that helps students discover suitable career paths based on their interests, strengths, and academic preferences. The project provides personalized career recommendations through an interactive questionnaire system.
 
